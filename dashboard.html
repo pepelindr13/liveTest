@@ -11,15 +11,21 @@
   #Table {
     margin: auto;
     margin-top: 100px;
+    text-align: center;
   }
 
   td{
     border-right: 1px solid black;
   }
+
+  img {
+    width: 30px;
+    height: 30px;
+  }
 </style>
 <body onload="show()">
     
-  <table class="table table-striped w-50" id="Table"></table>
+  <table class="table table-striped w-50 p-3 "  id="Table"></table>
        
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -64,8 +70,8 @@
                     <td>${storage[index].lastname}</td>
                     <td>${storage[index].mailphone}</td>
             <th>
-                <button class="btn btn-danger" onclick="deleted(${index})">DELETE</button>
-                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="edit${index})">EDIT</button>
+                <button class="border-0 me-2"  onclick="deleted(${index})"><img src="images/delete.png" alt=""></button>
+                <button type="button" class="border-0 " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="edit${index})"><img src="images/edit.png" alt=""></button>
                 </th>
                 </tr>`
                 

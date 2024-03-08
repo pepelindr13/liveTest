@@ -21,7 +21,6 @@ function submit() {
     
             if (pushedStudents) {
                 console.log(pushedStudents);
-                alert("Successfull")
                 // setTimeout(()=>{
                 //     success.style.display = 'none'
                 // }, 3000);
