@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<style> 
+  #Table {
+    margin: auto;
+    margin-top: 100px;
+  }
+
+  td{
+    border-right: 1px solid black;
+  }
+</style>
+<body onload="show()">
+    
+  <table class="table table-striped w-50" id="Table"></table>
+       
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Student Input</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-dark d-flex flex-column ">
+            <input class="p-2" type="text" id="firstname" placeholder="firstname">
+            <input class="p-2 my-2" type="text" id="lastname"  placeholder="lastname">
+            <input class="p-2" type="text" id="email"  placeholder="email">
+           </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button onclick="edit()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <script>
+       let storage = JSON.parse(localStorage.getItem('allstudents'))
+       console.log(storage);
+       let students = storage
+
+       function show (){
+        Table.innerHTML = `
+           <tr>
+            <th>Serial/Number</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Actions</th>
+            </tr>
+            `
+            
+            for (index = 0; index < storage.length; index++) {
+                Table.innerHTML += `
+                <tr>
+                    <td>${index + 1}</td>
+                    <td>${storage[index].firstname}</td>
+                    <td>${storage[index].lastname}</td>
+                    <td>${storage[index].mailphone}</td>
+            <th>
+                <button class="btn btn-danger" onclick="deleted(${index})">DELETE</button>
+                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="edit${index})">EDIT</button>
+                </th>
+                </tr>`
+                
+            }
+        }
+        function deleted(index){
+            // console.log(index);
+            storage.splice(index, 1)
+            show()
+
+        }
+
+        function edit(index){
+            console.log(index);
+            let input = firstname.value
+            let input1 = lastname.value
+            let input2 = email.value
+            let newDetails = {
+                firstname:firstname,
+                lastname:lastname,
+               mailphone:email,
+            }
+            // console.log(newDetails);
+            storage.splice(index, 1, newDetails)
+            show()
+        }
+    </script>
+
+    
+    <script src="script.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
