@@ -21,13 +21,23 @@
   ></script>
 </head>
 <style>
+
+  body{
+    background: url(images/main-slider-01.jpg);
+    background-size: cover;
+  }
+
+  .box {
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+
+  }
+
     
     #container {
         padding:10px 20px;
         width: 100%;
-        margin: auto;
-        border-radius: 20px;
-        border: 1px solid black;
+        margin: auto;        
     }
 
     #ell {
@@ -48,16 +58,17 @@
 
     label {
         font-size: 17px;
-        color: #878787;
+        color: black;
+        margin-bottom: 10px;
     }
 
     input {
         border: none;
-        border-bottom: 1px solid #878787;
+        border-bottom: 1px solid white;
         padding: 10px;
         margin-bottom: 15px;
         outline: none;
-        background: white;
+        background: none;
         /* padding-left: 10px; */
         font-size: 18px;
         font-weight: 600;
@@ -87,7 +98,7 @@
         color: white;
         border: none;
         border-radius: 20px;
-        padding: 15px 40px;
+        padding: 12px 40px;
         font-size: 20px;
         margin:0 auto;
     }
@@ -105,35 +116,37 @@
 
 
 </style>
-<body class="w-25 mx-auto">
-    <div id="container" class="mt-5">
-        <div id="ellipse">
-            <img src="images/Ellipse 127.png" alt="">
-            <img id="ell" src="images/Ellipse 128.png" alt="">
-        </div>
-        <h1 class="mb-4 ">
-            Sign Up
-        </h1>
-        <div>
-            <div>
-                <label for="email">Email Address</label> <br>
-                <input id="email" class="w-100" type="text" placeholder="Example@gmail.com">
-            </div>
-            <div>
-                <label for="firstname">First Name</label> <br>
-                <input id="firstname" class="w-100" type="text">
-            </div>
-            <div>
-                <label for="lastname">Last Name</label> <br>
-                <input id="lastname" class="w-100" type="text">
-            </div>
-            <div id="btndiv">
-                <button onclick="signup()">
-                    Sign Up
-                </button>
-            </div>
-        </div>
-    </div>
+<body>
+  <div class="box col-lg-4 col-12 mx-auto p-3 p-lg-0 shadow-sm mt-5">
+    <div id="container">
+      <div id="ellipse">
+          <img src="images/Ellipse 127.png" alt="">
+          <img id="ell" src="images/Ellipse 128.png" alt="">
+      </div>
+      <h1 class="mb-4 ">
+          Sign Up
+      </h1>
+      <div>
+          <div>
+              <label for="email">Email Address</label> <br>
+              <input id="email" class="w-100" type="text" placeholder="Example@gmail.com">
+          </div>
+          <div>
+              <label for="firstname">First Name</label> <br>
+              <input id="firstname" class="w-100" type="text">
+          </div>
+          <div>
+              <label for="lastname">Last Name</label> <br>
+              <input id="lastname" class="w-100" type="text">
+          </div>
+          <div id="btndiv">
+              <button  onclick="signup()">
+                  Sign Up
+              </button>
+          </div>
+      </div>
+  </div>
+  </div>
 
     <script>
         let SignedUp = [];
